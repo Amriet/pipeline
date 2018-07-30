@@ -25,13 +25,17 @@
     <mkdir dir="${dist.dir}" />
   </target>
 
+  echo "Ervoor"
+  
   <!-- Compiles the java code (including the usage of library for JUnit -->
   <target name="compile" depends="clean, makedir">
-    <javac fork="true" srcdir="${src.dir}" destdir="${build.dir}">
+    <javac srcdir="${src.dir}" destdir="${build.dir}" fork="true">
       <classpath refid="class.path" />
     </javac>
   </target>
 
+  echo "Erna"
+  
   <!--Creates the deployable jar file  -->
   <target name="jar" depends="compile">
     <jar destfile="${dist.dir}\rectangle_${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar" basedir="${build.dir}">
